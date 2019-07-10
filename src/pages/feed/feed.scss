@@ -1,0 +1,9 @@
+page-feed {
+    h2.feed-title {
+        color: red;
+        font-weight: bold;
+    }
+    p.feed-date {
+        color: green; //alterações somente no html feed, se quiser que alteracao css pegue mais arquivos, usar no app.scss
+    }
+}
