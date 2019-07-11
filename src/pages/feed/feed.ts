@@ -14,6 +14,14 @@ import { checkNoChangesView } from '@angular/core/src/view/view';
   templateUrl: 'feed.html',
 })
 export class FeedPage {
+  public object_feed = { // criando json e passando para variavel 
+    titulo:"Denis Barbosa",
+    data: "November, 5, 2019",
+    descricao: "Estou criando um app incrivel...",
+    qtd_like: 12,
+    qtd_coment: 10,
+    time_coment: "12h ago"
+  }
   public nome_usuario:string = 'Denis Barbosa';//variavel do tipo string
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
