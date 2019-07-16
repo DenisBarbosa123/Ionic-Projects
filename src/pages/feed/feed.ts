@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { checkNoChangesView } from '@angular/core/src/view/view';
-
+import {MoovieProvider} from '../../providers/moovie/moovie'
 /**
  * Generated class for the FeedPage page.
  *
@@ -12,6 +12,9 @@ import { checkNoChangesView } from '@angular/core/src/view/view';
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html',
+  providers:[
+    MoovieProvider
+  ]
 })
 export class FeedPage {
   public object_feed = { // criando json e passando para variavel 
@@ -24,12 +27,22 @@ export class FeedPage {
   }
   public nome_usuario:string = 'Denis Barbosa';//variavel do tipo string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private movieProvider: MoovieProvider ) {
   }
 
 
 
   ionViewDidLoad() {//metodo que carrega junto com tela
+    this.movieProvider.getLetesMovies().subscribe(
+      data=>{
+        console.log(data);
+      }, error=>{
+        console.log(error);
+      }
+    )
   }
 
 }
