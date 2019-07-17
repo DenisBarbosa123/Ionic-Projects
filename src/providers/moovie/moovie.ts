@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -9,12 +9,18 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class MoovieProvider {
-  private baseApiPath = "https://api.themoviedb.org/3";
+  private baseApiPath = "https://api.themoviedb.org/3/";
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello MoovieProvider Provider');
   }
+
   getLetesMovies(){
-    return this.http.get(this.baseApiPath + "movie/latest");
+    return this.http.get(this.baseApiPath + "movie/popular?api_key="+this.getApiKey());
+  }
+
+  getApiKey():string{
+    var key : string ='ff4d2c7b2ebcacbdb1aadbf6ea84a5cd'; 
+    return key;
   }
 }

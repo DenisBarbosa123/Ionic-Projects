@@ -25,6 +25,7 @@ export class FeedPage {
     qtd_coment: 10,
     time_coment: "12h ago"
   }
+  public lista_filmes = new Array<any>();
   public nome_usuario:string = 'Denis Barbosa';//variavel do tipo string
 
   constructor(
@@ -38,7 +39,12 @@ export class FeedPage {
   ionViewDidLoad() {//metodo que carrega junto com tela
     this.movieProvider.getLetesMovies().subscribe(
       data=>{
-        console.log(data);
+
+        const response = (data as any);//casting data for any
+        const objeto_retorno = JSON.parse(response._body);//faz parse de json para objeto
+        this.lista_filmes = objeto_retorno.results;
+        
+        console.log(objeto_retorno); 
       }, error=>{
         console.log(error);
       }

@@ -27,20 +27,20 @@
         <h1></h1>
     </div>
 
-    <ion-card>
+    <ion-card *ngFor="let filme of lista_filmes">
 
         <ion-item>
             <ion-avatar item-start>
                 <img src="../../assets/imgs/marty-avatar.png">
             </ion-avatar>
-            <h2 class='feed-title'>{{object_feed.titulo}}</h2>
-            <p class="feed-date">{{object_feed.data}}</p>
+            <h2 class='feed-title'>{{filme.original_title}}</h2>
+            <p class="feed-date">{{filme.release_date}}</p>
         </ion-item>
 
-        <img src="../../assets/imgs/advance-card-bttf.png">
+        <img [src]="'https://image.tmdb.org/t/p/w300/'+ filme.backdrop_path">
 
         <ion-card-content>
-            <p>{{object_feed.descricao}}</p>
+            <p>{{filme.overview}}</p>
         </ion-card-content>
 
         <ion-row>
