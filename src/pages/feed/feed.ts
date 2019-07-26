@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { checkNoChangesView } from '@angular/core/src/view/view';
 import {MoovieProvider} from '../../providers/moovie/moovie'
-import { ThrowStmt } from '@angular/compiler';
+import { FilmesDetalhesPage } from '../filmes-detalhes/filmes-detalhes';
 /**
  * Generated class for the FeedPage page.
  *
@@ -59,6 +58,11 @@ export class FeedPage {
 
   ionViewDidEnter() {//metodo que carrega junto com tela
     this.carregarFilmes();
+  }
+
+  abrirDetalhes(filme){//faz abrir a pagina detalhes do filme
+    console.log(filme);
+    this.navCtrl.push(FilmesDetalhesPage, {id: filme.id});
   }
 
   carregarFilmes(){
