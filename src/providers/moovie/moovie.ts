@@ -15,8 +15,8 @@ export class MoovieProvider {
     console.log('Hello MoovieProvider Provider');
   }
 
-  getLetesMovies(){
-    return this.http.get(this.baseApiPath + "movie/popular?api_key="+this.getApiKey());
+  getLetesMovies(page = 1){
+    return this.http.get(this.baseApiPath + `movie/popular?page=${page}&api_key=` + this.getApiKey());
   }
 
   getMoviesDetails(filmeId){
