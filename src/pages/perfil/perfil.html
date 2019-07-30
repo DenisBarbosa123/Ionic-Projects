@@ -11,7 +11,7 @@
           <ion-icon name="menu"></ion-icon>
         </button>
 
-        <ion-title>perfil</ion-title>
+        <ion-title>Perfil</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -20,4 +20,7 @@
 <ion-content padding>
     <h2>Denis Barbosa</h2>
     <p>21 anos</p>
+
+    <img *ngIf="img" [src]="img" alt="">
+    <button ion-button block (click)="tirarFoto()">Tirar Foto</button>
 </ion-content>
